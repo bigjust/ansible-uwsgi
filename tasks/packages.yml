@@ -1,6 +1,6 @@
 ---
 - name: Making sure uwsgi dependencies are installed from apt...
-  apt: pkg={{ item }} state=present
+  apt: pkg={{ item }} state=present update_cache=yes
   with_items:
     - build-essential
     - libonig-dev
@@ -44,4 +44,3 @@
       - ruby
       - ruby-devel
   when: ansible_os_family == "RedHat" and ansible_distribution_version > "7"
-
